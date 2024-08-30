@@ -1,0 +1,1 @@
+kubectl create configmap my-config --from-literal=APP_NAME=MyApp --from-literal=APP_ENV=development --from-literal=LOG_LEVEL=debug
