@@ -1,0 +1,11 @@
+kubectl apply -f configmap.yaml
+kubectl apply -f pod-configmap-env.yaml
+To verify the environment variables, you can exec into the Pod and print the environment variables:
+kubectl exec -it configmap-pod -- printenv | grep APP_
+If you mounted the ConfigMap as a file, you can check the contents of the file inside the Pod:
+kubectl exec -it configmap-pod -- cat /etc/config/APP_NAME
+If you need to update the ConfigMap, you can edit it using:
+kubectl edit configmap my-config
+Once you're done with the practical, clean up the resources:
+kubectl delete pod configmap-pod
+kubectl delete configmap my-config
